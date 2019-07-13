@@ -1,0 +1,24 @@
+.menu {
+    
+    text-align: center;
+    cursor: pointer;
+    
+}
+nav {
+    
+    font-size: 30px;
+}
+span {
+    background-color: #D5B0AC;
+    color: rgb(247, 62, 20);
+    font-style: bold;
+    display: block;
+    width: 100px;
+    height: 30;
+    
+}
+#item2 {
+    background-color:#9CD08F;
+    color: aliceblue;
+
+}

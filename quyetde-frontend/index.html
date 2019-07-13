@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Đáp gọn</title>
+</head>
+<body>
+    <h1>Question content</h1>
+    <div>
+        <button>Sai/Không/Trái</button>
+        <button>Đúng/Có/Phải</button>
+    </div>
+    <div>
+        <button>Kết quả vote</button>
+        <button>Câu hỏi khác</button>
+    </div>
+
+    <script>
+        fetch("http://localhost:6789/vote", {
+        method: "GET",
+    }).then(function(response){
+        return response.json(); 
+    }).then(function(data){
+        console.log(data);
+        console.log(document.querySelector('h1'));
+        document.querySelector('h1').innerText = data.content;
+        
+    }).catch(err => {
+        console.log("ERRO: ", err);
+    });
+    </script>
+    
+</body>
+</html>
