@@ -8,17 +8,27 @@
 </head>
 <body>
     <h1>Question content</h1>
+    <form id="vote" action="#" method="POST">
+        <button type="submit" name="vote" value="yes">Đúng / Có / Phải</button>
+        <button type="submit" name="vote" value="no">Sai / Không / Trái</button>
+        <!-- <button>Sai / Không / Trái</button>
+        <button>Đúng / Có / Phải</button> -->
+    </form>
+        
+    
     <div>
-        <button>Sai/Không/Trái</button>
-        <button>Đúng/Có/Phải</button>
-    </div>
-    <div>
-        <button>Kết quả vote</button>
-        <button>Câu hỏi khác</button>
+        <a id="detail" href="#">
+            <button>Kết quả vote</button>
+        </a>
+        
+        <a href="/">
+            <button>Câu hỏi khác</button>
+        </a>
+        
     </div>
 
     <script>
-        fetch("http://localhost:6789/vote", {
+        fetch("http://localhost:6789/randomquestion", {
         method: "GET",
     }).then(function(response){
         return response.json(); 
@@ -26,7 +36,9 @@
         console.log(data);
         console.log(document.querySelector('h1'));
         document.querySelector('h1').innerText = data.content;
-        
+        document.getElementById("detail").href = "/chi-tiet?questionId="+data._id;
+        document.getElementById("vote").action = "http://localhost:6789/vote/"+data._id;
+
     }).catch(err => {
         console.log("ERRO: ", err);
     });

@@ -11,7 +11,7 @@
     <p>vote</p>
     <span id="yes">vote yes: </span>
     <span id="no">vote no: </span>
-    <button>Xem câu hỏi khác</button>
+    <a href="/"><button>Xem câu hỏi khác</button></a>
 
     <script>
 
@@ -33,6 +33,8 @@
         document.getElementById("yes").innerText ="Vote yes: " + data.yes;
         document.getElementById("no").innerText ="Vote no: " + data.no;
         document.querySelector('p').innerText = data.yes + data.no + " vote";
+        
+
     }).catch(err => {
         console.log("ERRO: ", err);
     });
